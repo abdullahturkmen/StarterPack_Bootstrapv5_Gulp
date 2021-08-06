@@ -1,0 +1,45 @@
+{
+  "name": "Bootstrap_v5_StarterPack",
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build --production",
+    "clear": "gulp clear",
+    "devel": "gulp devel",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "author": "Orcun KILICASLAN  <orcunk@outlook.com> (https://github.com/orcunkilicaslan)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "autoprefixer": "^10.3.1",
+    "browser-sync": "^2.27.5",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-if": "^3.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "node-sass-tilde-importer": "^1.0.2",
+    "sass": "^1.37.5",
+    "webpack-stream": "^6.1.2"
+  },
+  "resolutions": {
+    "glob-parent": "6.0.1",
+    "yargs-parser": "20.2.9",
+    "js-yaml": "3.14.1"
+  },
+  "engines": {
+    "node": ">=14.15.4",
+    "npm": ">=7.15.0"
+  },
+  "browserslist": [
+    "Explorer >= 10",
+    "last 3 versions"
+  ]
+}
