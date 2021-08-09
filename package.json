@@ -12,10 +12,11 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
-    "autoprefixer": "^10.3.1",
+    "bootstrap": "^5.1.0",
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",

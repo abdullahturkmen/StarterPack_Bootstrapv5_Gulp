@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Dependencies
 const gulp                          = require('gulp');
 const del                           = require('del');
@@ -7,9 +8,9 @@ const gulppif                       = require('gulp-if');
 const util                          = require('gulp-util');
 const sourcemaps                    = require('gulp-sourcemaps');
 const plumber                       = require('gulp-plumber');
-const gulpSass                      = require('gulp-sass')(require('sass'));
-const tildeImporter                 = require('node-sass-tilde-importer');
-const autoprefixer                  = require('autoprefixer');
+const sass                          = require('gulp-sass')(require('sass'));
+const tildeimporter                 = require('node-sass-tilde-importer');
+const autoprefixer                  = require('gulp-autoprefixer');
 const cssnano                       = require('gulp-cssnano');
 const babel                         = require('gulp-babel');
 const webpack                       = require('webpack-stream');
@@ -35,15 +36,15 @@ const configProduction              = {production: !!util.env.production, source
 // Compile SCSS Files
 gulp.task('sass-custom', () => {
     return gulp.src([
-        //folderSrcMain + 'scss/bootstrap/**/*.*',
-        //folderSrcMain + 'scss/plugin/**/*.*',
-        //folderSrcMain + 'scss/custom/**/*.*',
-        folderSrcMain + 'scss/**/*.*'
+        folderSrcMain + 'scss/app_stylesheet.scss'
     ])
         .pipe(gulppif(configProduction.sourceMaps, sourcemaps.init()))
         .pipe(plumber())
-        .pipe(gulpSass({
-            importer: tildeImporter
+        .pipe(sass({
+            importer: tildeimporter
+        }))
+        .pipe(autoprefixer({
+            flexbox: 'no-2009'
         }))
         .pipe(configProduction.production ? cssnano({
             reduceIdents: false,
@@ -63,9 +64,8 @@ gulp.task('sass-custom', () => {
 // Compile JS Files
 gulp.task('script-custom', () => {
     return gulp.src([
-        //folderSrcMain + 'script/plugin/**/app.js',
-        //folderSrcMain + 'script/custom/**/app.js',
-        folderSrcMain + 'script/**/app.js'
+        folderSrcMain + 'script/plugin/**/app.js',
+        folderSrcMain + 'script/custom/**/app.js'
     ])
         .pipe(plumber())
         .pipe(webpack({
@@ -87,7 +87,7 @@ gulp.task('script-custom', () => {
 gulp.task('vendor', () => {
     if (nodeDependencies.length === 0) {
         return new Promise((resolve) => {
-            console.log("No dependencies specified");
+            //console.log("No dependencies specified");
             resolve();
         });
     }
@@ -137,12 +137,11 @@ gulp.task('watch', () => {
 
     const watch = [
         //folderHtmlMain + '**/*.html',
-        folderSrcMain + 'sass/**/*.*',
+        folderSrcMain + 'scss/**/*.*',
         folderSrcMain + 'script/**/*.*'
     ];
 
     gulp.watch(watch, gulp.series('devel')).on('change', browserSync.reload);
-    gulp.watch(watchVendor, gulp.series('vendor')).on('change', browserSync.reload);
 });
 
 
@@ -151,5 +150,5 @@ gulp.task('clear', () => del([ folderDistMain, folderDistNodeModules ]));
 gulp.task('custom', gulp.series('sass-custom', 'script-custom'));
 gulp.task('build', gulp.series('clear', 'vendor', 'custom'));
 gulp.task('devel', gulp.series('custom', gulp.parallel('watch')));
-gulp.task('start', gulp.series('build', 'vendor', 'devel', gulp.parallel('serve', 'watch')));
-gulp.task('default', gulp.series('build', 'vendor', 'devel'));
+gulp.task('start', gulp.series('build', 'devel', gulp.parallel('serve', 'watch')));
+gulp.task('default', gulp.series('build'));
