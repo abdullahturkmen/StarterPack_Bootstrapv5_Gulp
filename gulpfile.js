@@ -36,7 +36,7 @@ const configProduction              = {production: !!util.env.production, source
 // Compile SCSS Files
 gulp.task('sass-custom', () => {
     return gulp.src([
-        folderSrcMain + 'scss/app_stylesheet.scss'
+        folderSrcMain + 'scss/app.scss'
     ])
         .pipe(gulppif(configProduction.sourceMaps, sourcemaps.init()))
         .pipe(plumber())
@@ -64,7 +64,7 @@ gulp.task('sass-custom', () => {
 // Compile JS Files
 gulp.task('script-custom', () => {
     return gulp.src([
-        folderSrcMain + 'script/plugin/**/app.js',
+        folderSrcMain + 'script/vendors/**/app.js',
         folderSrcMain + 'script/custom/**/app.js'
     ])
         .pipe(plumber())

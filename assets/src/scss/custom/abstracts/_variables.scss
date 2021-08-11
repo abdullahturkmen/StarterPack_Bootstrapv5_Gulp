@@ -1,3 +1,12 @@
+
+/* Site Main Path Settings */
+$cache-busting:           #{'?v='}(unique_id());
+$path-assets-url:         "../../../assets" !default;
+$path-fonts-url:          "#{$path-assets-url}/fonts" !default;
+$path-img-url:            "#{$path-assets-url}/img" !default;
+$path-img-url-icons:      "#{$path-img-url}/icons" !default;
+/* Site Main Path Settings */
+
 /* Site General Color Settings */
 $site-clr-white:                #FFFFFF;
 $site-clr-black:                #000000;
@@ -8,7 +17,6 @@ $site-clr-green:                #70A800;
 $site-clr-red:                  #B82C0D;
 $site-clr-orange:               #E67948;
 $site-clr-yellow:               #FF8C00;
-$site-clr-grylight:             #F1F6FE;
 /* Site General Color Settings */
 
 /* Site Currency Color Settings */
@@ -54,22 +62,6 @@ $site-result-dark-success-bg:           $site-clr-white;
 $site-result-dark-warning-brdr:         transparentize($site-clr-orange, 0.95);
 $site-result-dark-warning-bg:           $site-clr-white;
 /* Site Dark Theme Settings */
-
-/* Site Border Color Settings */
-$site-brdr-light:                       #e0e5ec;
-$site-brdr-light-focus:                 darken($site-brdr-light, 15%);
-$site-brdr-light-opacity:               #F2F5F9;
-$site-brdr-light-input:                 $site-brdr-light;
-$site-brdr-light-input-focus:           $site-brdr-light-focus;
-/* Site Border Color Settings */
-
-/* Site Main Path Settings */
-$cache-busting:           #{'?v='}(unique_id());
-$path-assets-url:         "../../../assets" !default;
-$path-fonts-url:          "#{$path-assets-url}/fonts" !default;
-$path-img-url:            "#{$path-assets-url}/img" !default;
-$path-img-url-icons:      "#{$path-img-url}/icons" !default;
-/* Site Main Path Settings */
 
 /* General Booststrap Site and Button Color Settings */
 $global-clr-white:              $site-clr-white;

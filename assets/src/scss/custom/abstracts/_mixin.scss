@@ -1,5 +1,3 @@
-// Global Configurations
-@import "../../app_configurations";
 
 // Cross browser CSS3 mixins
 @mixin css3-prefix($property, $value) {
@@ -250,13 +248,6 @@
 /* Border End */
 
 /* Background Start */
-@mixin background-gradient($color1, $color2) {
-  background-color: $color1;
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2});
-  background-image: -moz-linear-gradient(center top, $color1, $color2);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2));
-}
-
 @mixin background-linear($color1, $color2, $deg: 90, $start: 0%, $finish: 100%,) {
   background-color: $color1;
   background-image: linear-gradient(#{$deg}deg, $color1 $start, $color2 $finish);
@@ -265,15 +256,6 @@
   background-image: -moz-linear-gradient(#{$deg}deg,  $color1 $start, $color2 $finish); /* FF3.6+ */
   background-image: -webkit-linear-gradient(#{$deg}deg,  $color1 $start, $color2 $finish); /* Chrome10+,Safari5.1+ */
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2});
-}
-
-@mixin background-size($background-size) {
-  background-size: $background-size;
-  -o-background-size: $background-size;
-  -ms-background-size: $background-size;
-  -moz-background-size: $background-size;
-  -webkit-background-size: $background-size;
-  -khtml-background-size: $background-size;
 }
 
 @mixin blur ($radius) {
@@ -310,10 +292,6 @@
   -ms-filter: brightness($brightness) invert($invert) hue-rotate(#{$hue}deg) contrast($contrast) grayscale($grayscale) opacity($opacity);
   -o-filter: brightness($brightness) invert($invert) hue-rotate(#{$hue}deg) contrast($contrast) grayscale($grayscale) opacity($opacity);
   -moz-filter: brightness($brightness) invert($invert) hue-rotate(#{$hue}deg) contrast($contrast) grayscale($grayscale) opacity($opacity);
-}
-
-@mixin background-cache-bust($path, $filename, $extension) {
-  background-image: #{'url('}$path#{'/'}$filename#{'.'}$extension#{'?v='}+unique_id()#{')'};
 }
 /* Background End */
 

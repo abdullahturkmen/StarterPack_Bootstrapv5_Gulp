@@ -1,20 +1,9 @@
-// Option
-@import "option/option";
 
-// Helper
-@import "helper/helper";
-
-// Elements
+// Custom
+@import "vendors/vendors";
+@import "abstracts/abstracts";
+@import "base/base";
 @import "elements/elements";
-
-// Component
-@import "component/component";
-
-// Backbone
+@import "components/components";
 @import "backbone/backbone";
-
-// Form UI Kit
-@import "form/form";
-
-// Page
 @import "page/page";
