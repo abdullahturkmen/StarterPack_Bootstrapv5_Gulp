@@ -5,7 +5,7 @@
     "build": "gulp build --production",
     "clear": "gulp clear",
     "devel": "gulp devel",
-    "preinstall": "npx npm-force-resolutions"
+    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
   },
   "author": "Orcun KILICASLAN  <orcunk@outlook.com> (https://github.com/orcunkilicaslan)",
   "license": "MIT",
